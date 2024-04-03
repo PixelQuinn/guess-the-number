@@ -6,9 +6,8 @@ using namespace std;
 int main() {
     char gameStart;
 
-    cout << "Would you like to play my number guessing game?" << endl;
     while (gameStart != 'n' && gameStart != 'N' && gameStart != 'y' && gameStart != 'Y') {
-        cout << "This is an invalid input, please try again." << endl;
+        cout << "Would you like to play my number guessing game? (y or n)" << endl;
         cin >> gameStart;
     }
 
