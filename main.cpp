@@ -7,7 +7,10 @@ int main() {
     char gameStart;
 
     cout << "Would you like to play my number guessing game?" << endl;
-    cin >> gameStart;
+    while (gameStart != 'n' && gameStart != 'N' && gameStart != 'y' && gameStart != 'Y') {
+        cout << "This is an invalid input, please try again." << endl;
+        cin >> gameStart;
+    }
 
     srand(time(NULL));
     int answer = rand() % 100 + 1;
