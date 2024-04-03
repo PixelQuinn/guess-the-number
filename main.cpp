@@ -18,14 +18,24 @@ int main() {
     while(gameStart == 'y' || gameStart == 'Y') {
 
         char difficulty;
-        int guessedAnswer, numberOfGuesses;
+        int guessedAnswer, numberOfGuesses, maxGuesses;
 
         while (difficulty != 'e' && difficulty != 'm' && difficulty != 'h') {
             cout << "What difficulty would you like to play on? Easy(input e), Medium(input m), or Hard Mode(input h, if you dare that is!)?" << endl;
             cin >> difficulty;
             difficulty = tolower(difficulty);
         }
-        
+
+        if (difficulty == 'e') {
+            maxGuesses = 15;
+        }
+        else if (difficulty == 'm') {
+            maxGuesses = 10;
+        }
+        else if (difficulty == 'h') {
+            maxGuesses = 5;
+        }
+
         cout << "I am thinking of a number between 1 and 100, take a guess to see if you get it right!" << endl;
         cin >> guessedAnswer;
 
@@ -47,6 +57,11 @@ int main() {
         else if (guessedAnswer == answer) {
             numberOfGuesses += 1;
             cout << "You did it! You found my secret number in " << numberOfGuesses << " numberOfGuesses!" << endl;
+            break;
+        }
+
+        if (numberOfGuesses == maxGuesses) {
+            cout << "Sorry, you ran out of guesses!" << endl;
             break;
         }
     }
