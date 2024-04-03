@@ -17,7 +17,7 @@ int main() {
 
     while(gameStart == 'y' || gameStart == 'Y') {
 
-        int guessedAnswer;
+        int guessedAnswer, numberOfGuesses;
 
         cout << "I am thinking of a number between 1 and 100, take a guess to see if you get it right!" << endl;
         cin >> guessedAnswer;
@@ -31,12 +31,15 @@ int main() {
 
         if (guessedAnswer < answer) {
             cout << "Nope! Your answer is too small." << endl;
+            numberOfGuesses += 1;
         }
         else if (guessedAnswer > answer) {
             cout << "No way! Your number is too big." << endl;
+            numberOfGuesses += 1;
         }
         else if (guessedAnswer == answer){
-            cout << "You did it! You found my secret number!" << endl;
+            numberOfGuesses += 1;
+            cout << "You did it! You found my secret number in " << numberOfGuesses << " numberOfGuesses!" << endl;
             break;
         }
 
